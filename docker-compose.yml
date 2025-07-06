@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  app:
+    # Constrói a imagem a partir do Dockerfile no diretório atual (.)
+    build: .
+    container_name: imersao-devops-api
+    ports:
+      # Mapeia a porta 8000 do host para a porta 8000 do contêiner
+      - "8000:8000"
+    volumes:
+      # Monta o diretório atual no diretório /app do contêiner.
+      # Isso permite o hot-reloading (com --reload) e a persistência
+      # do banco de dados SQLite (escola.db) no seu host.
+      - .:/app
